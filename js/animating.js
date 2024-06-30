@@ -42,6 +42,7 @@ var PageTransitions = (function ($, options) {
 
         // Adding click event to main menu link
         $('.nav-anim').on("click", function (e) {
+            console.log('pagechange',e)
             e.preventDefault();
             if (isAnimating) {
                 return false;
@@ -57,6 +58,7 @@ var PageTransitions = (function ($, options) {
         });
 
         window.onhashchange = function(event) {
+            console.log(event)
             if(location.hash) {
                 if (isAnimating) {
                     return false;
@@ -72,9 +74,12 @@ var PageTransitions = (function ($, options) {
         var menu = options.menu,
         pageStart = getActiveSection();
 
+        console.log('menu',menu, menu+' a[href*="'+location.hash.split('/')[0]+'"]')
+
         location.hash = pageStart;
         var menuLink = $(menu+' a[href*="'+location.hash.split('/')[0]+'"]');
 
+        console.log('menuLink', menuLink)
         activeMenuItem(menuLink);
 
         Animate(menuLink);

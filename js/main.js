@@ -108,6 +108,7 @@
                     menu: 'ul.main-menu',
                 });
             }
+
         })
         .on('resize', function() { //Resize
              mobileMenuHide();
